@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity"
-    android:background="@drawable/background"
+    android:background="@drawable/background_light"
     >
 
     <ImageView
@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_logo"/>
+        android:src="@drawable/ic_logo_dark_blue"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/email_textInputLayout"
@@ -25,17 +25,13 @@
         app:layout_constraintTop_toBottomOf="@+id/iv_logo"
         android:layout_marginTop="30dp"
         android:layout_marginHorizontal="32dp"
-        android:hint="Email"
-        android:textColorHint="@color/white"
-        app:hintTextColor="@color/white"
-        app:boxStrokeColor="@color/white"
+        android:hint="@string/email"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/email_editTextLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
             android:inputType="textEmailAddress"
             />
 
@@ -48,9 +44,6 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
         android:layout_marginTop="20dp"
-        app:boxStrokeColor="@color/white"
-        app:hintTextColor="@color/white"
-        android:textColorHint="@color/white"
         app:layout_constraintTop_toBottomOf="@+id/email_textInputLayout"
         app:passwordToggleEnabled="true">
 
@@ -59,9 +52,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Paswword"
-            android:inputType="textPassword"
-            android:textColor="@color/white" />
+            android:hint="@string/password"
+            android:inputType="textPassword"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -69,9 +61,9 @@
         android:id="@+id/tv_forgotPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Forgot password? "
-        android:textColor="@color/white"
+        android:text="Forgot password?   "
         android:layout_marginTop="10dp"
+        android:textColor="@color/white"
         app:layout_constraintTop_toBottomOf="@id/password_textInputLayout"
         app:layout_constraintEnd_toEndOf="@id/password_textInputLayout"/>
 
@@ -106,8 +98,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Don't have an account? "
-                android:textColor="@color/white"
-                android:textSize="13sp"/>
+                android:textSize="13sp" />
 
             <TextView
                 android:id="@+id/tv_signup"
@@ -115,7 +106,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@id/tv_info_signup"
                 android:text="signup"
-                android:textColor="@color/blue"
+                android:textColor="@color/white"
                 android:textSize="13sp" />
 
         </RelativeLayout>
