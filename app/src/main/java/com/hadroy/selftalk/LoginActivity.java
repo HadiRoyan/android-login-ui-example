@@ -62,6 +62,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (validationLogin()) {
                     login(email, password);
+                    new User(email, password);
                     Log.i(TAG, "onClick: login SUCCESS, validationLogin: "+ validationLogin());
                 } else {
                     Log.i(TAG, "onClick: login FAIL, validationLogin: "+ validationLogin());
@@ -72,26 +73,27 @@ public class LoginActivity extends AppCompatActivity {
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mStartActivity(LoginActivity.this, SignupActivity.class);
+                startActivity(new Intent(LoginActivity.this, SignupActivity.class));
             }
         });
 
         forgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mStartActivity(LoginActivity.this, ForgotPasswordActivity.class);
+                startActivity(new Intent(LoginActivity.this, ForgotPasswordActivity.class));
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        Log.i(TAG, "onBackPressed: system exit");
+        finish();
     }
 
     private boolean validationLogin() {
         return validation.validateEmail(et_emailInputLayout, email_textInputEditText) &&
                 validation.validatePassword(et_passwordInputLayout, password_textInputEditText);
-    }
-
-    private void mStartActivity(Context packageContext, Class<?> cls) {
-        Intent intent = new Intent(packageContext, cls);
-        startActivity(intent);
     }
 
     private void login(String email, char[] password) {

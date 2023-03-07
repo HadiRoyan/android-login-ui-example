@@ -1,11 +1,14 @@
 package com.hadroy.selftalk;
 
-    import com.google.android.material.textfield.TextInputEditText;
-    import com.google.android.material.textfield.TextInputLayout;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 public class Validation {
 
-    public boolean validateEmail(TextInputLayout textInputLayout, TextInputEditText textInputEditText) {
+    public boolean validateEmail(
+            TextInputLayout textInputLayout,
+            TextInputEditText textInputEditText) {
+
         if (textInputEditText.getText().toString().trim().isEmpty()) {
             textInputLayout.setErrorEnabled(false);
             return false;
@@ -22,7 +25,10 @@ public class Validation {
         return true;
     }
 
-    public boolean validatePassword(TextInputLayout password_layout, TextInputEditText password_editText) {
+    public boolean validatePassword(
+            TextInputLayout password_layout,
+            TextInputEditText password_editText) {
+
         if (password_editText.getText().toString().trim().isEmpty()) {
             password_layout.setHelperText("Password is required");
             password_layout.setHelperTextEnabled(true);
@@ -38,17 +44,18 @@ public class Validation {
         return true;
     }
 
-    public boolean validateConfirmPassword(TextInputLayout confirmPassword_layout,
-                                           TextInputEditText confirmPassword_text,
-                                           TextInputEditText password_text) {
+    public boolean validateConfirmPassword(
+            TextInputLayout confirmPassword_layout,
+            TextInputEditText confirmPassword_text,
+            TextInputEditText password_text) {
 
         String password = password_text.getText().toString();
         String confirmPassword = confirmPassword_text.getText().toString();
 
         if (confirmPassword_text.getText().toString().trim().isEmpty()) {
             confirmPassword_layout.setErrorEnabled(false);
-            confirmPassword_layout.setHelperText("Rewrite Password");
             confirmPassword_layout.setHelperTextEnabled(true);
+            confirmPassword_layout.setHelperText("Rewrite Password");
             return false;
         } else {
             if (!password.equals(confirmPassword)) {
@@ -61,4 +68,5 @@ public class Validation {
 
         return true;
     }
+
 }

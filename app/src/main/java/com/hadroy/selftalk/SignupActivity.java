@@ -67,7 +67,7 @@ public class SignupActivity extends AppCompatActivity {
                 String emailUser = email.getText().toString();
                 char[] passwordUser = password.getText().toString().toCharArray();
 
-                if (validationSignup() && !nameUser.trim().isEmpty()) {
+                if (validationSignup() ) {
                     Log.i(TAG, "onClick: SIGN UP SUCCESS, validation: "+validationSignup());
                     Intent intent = new Intent(SignupActivity.this, MainActivity.class);
                     intent.putExtra("NAME", nameUser);
@@ -91,7 +91,9 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     boolean validationSignup() {
-        return validation.validateEmail(email_layout, email) && validation.validatePassword(password_layout, password);
+        return validation.validateEmail(email_layout, email) &&
+                validation.validatePassword(password_layout, password) &&
+                !name.getText().toString().trim().isEmpty();
     }
 
     private class ValidationTextWitcher implements TextWatcher {
